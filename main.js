@@ -11,6 +11,7 @@ function main() {
 
   var fragmentShaderCode = `
         void main () {
+          gl.PointSize = 10
         }
   `;
   var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
@@ -23,7 +24,9 @@ function main() {
   gl.linkProgram(shaderProgram);
   gl.useProgram(shaderProgram);
 
-  gl.clearColor(1.0, 0.75, 0.79, 0.7); 
+  gl.clearColor(0, 0.56, 0.48, 0.0); 
 
   gl.clear(gl.COLOR_BUFFER_BIT);
+
+  gl.drawArrays(gl.point, )
 }
