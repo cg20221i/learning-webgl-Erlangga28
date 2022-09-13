@@ -3,7 +3,7 @@ function main() {
   var canvas = document.getElementById("myCanvas");
   var gl = canvas.getContext("webgl");
 
-  var vertices= [0.5, 0.5, 0.0, 0.0, -0.5, -0.5];
+  var vertices= [0.5, 0.5, 0.0, 0.0, -0.5, 0.5, 0.0, 1.0];
 
  
 
@@ -14,7 +14,7 @@ function main() {
   var vertexShaderCode = `
   attribute vec2 aPosition;
   void main () {
-    gl_PointSize = 50.0;  // adding size of point
+    gl_PointSize = 30.0;  // adding size of point
     gl_Position = vec4(aPosition, 0.0, 1.0);
   }
   `;
@@ -46,5 +46,5 @@ function main() {
 
   gl.clear(gl.COLOR_BUFFER_BIT);
 
-  gl.drawArrays(gl.POINT, 0, 3);
+  gl.drawArrays(gl.TRIANGLE_FAN, 0, 4);
 }
