@@ -50,6 +50,29 @@ function main() {
   gl.linkProgram(shaderProgram);
   gl.useProgram(shaderProgram);
 
+  // Local variables
+  var isAnimated = false;
+  var theta = 0.0;
+  var direction = 0; 
+
+  // Local functions
+  function onMouseClick (event) {
+      isAnimated = !isAnimated;
+  }
+  function onKeyDown (event) {
+      if (event.keyCode == 32) {  // Space button
+          isAnimated = true;
+      }
+  }
+  function onKeyUp (event) {
+      if (event.keyCode == 32) {  // Space button
+          isAnimated = false;
+      }
+  }
+  document.addEventListener("click", onMouseClick, false);
+  document.addEventListener("keydown", onKeyDown, false);
+  document.addEventListener("keyup", onKeyUp, false);
+
   var theta = 0.0;
   // ! all qualifire
   var uTheta = gl.getUniformLocation(shaderProgram, "uTheta");
@@ -68,7 +91,7 @@ function main() {
   
   gl.clear(gl.COLOR_BUFFER_BIT);
 
-  theta += 0.05;
+  theta += 0.03;
   gl.uniform1f(uTheta, theta);
 
   gl.drawArrays(gl.TRIANGLE_FAN, 0, 4);
