@@ -17,7 +17,8 @@
             document.body.appendChild(renderer.domElement);
 
             const geometry = new THREE.CylinderGeometry(5, 5, 10, 25);
-            const material = new THREE.MeshBasicMaterial( {color : 0xff0000} );
+            const loader = new THREE.TextureLoader();
+            const material = new THREE.MeshBasicMaterial( {map: loader.load('/Killua99.jpg')} );
             const Cylinder = new THREE.Mesh(geometry, material);
             scene.add(Cylinder);
 
