@@ -15,18 +15,19 @@
             const renderer = new THREE.WebGLRenderer();
             renderer.setSize(window.innerWidth, window.innerHeight )
             document.body.appendChild(renderer.domElement);
-            const geometry = new THREE.BoxGeometry(1, 1, 1);
-            const material = new THREE.MeshBasicMaterial( {color : 0xff0000} );
-            const Cube = new THREE.Mesh(geometry, material);
-            scene.add(Cube);
 
-            camera.position.z = 5;
+            const geometry = new THREE.CylinderGeometry(5, 5, 10, 25);
+            const material = new THREE.MeshBasicMaterial( {color : 0xff0000} );
+            const Cylinder = new THREE.Mesh(geometry, material);
+            scene.add(Cylinder);
+
+            camera.position.z = 30;
 
         function animate() {
 	        requestAnimationFrame( animate );
-        Cube.rotation.x += 0.01;
-        Cube.rotation.y += 0.01;
-	    renderer.render( scene, camera );
+            Cylinder.rotation.x += 0.01;
+            Cylinder.rotation.y += 0.01;
+	        renderer.render( scene, camera );
         }
         animate();
 		</script>
